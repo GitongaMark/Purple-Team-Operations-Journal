@@ -3,11 +3,6 @@
 ![Status](https://img.shields.io/badge/Status-Active_Development-brightgreen) ![Focus](https://img.shields.io/badge/Focus-Purple_Teaming-blueviolet) ![Author](https://img.shields.io/badge/Author-Mark_Gitonga-blue)
 
 ## 👤 About Me
-I am a final-year **# 🛡️ Purple Operations Journal: Zero to Purple
-
-![Status](https://img.shields.io/badge/Status-Active_Development-brightgreen) ![Focus](https://img.shields.io/badge/Focus-Purple_Teaming-blueviolet) ![Author](https://img.shields.io/badge/Author-Mark_Gitonga-blue)
-
-## 👤 About Me
 I am a final-year **Mathematics & Computer Science** student at **Maseno University**, aspiring to bridge the gap between offensive security (Red Team) and defensive operations (Blue Team).
 
 This repository documents my intensive 5-month "Purple Team" training roadmap. Unlike traditional study repositories, this journal focuses on **artifacts**: generating real attack traffic and building the exact detection rules required to stop it.
