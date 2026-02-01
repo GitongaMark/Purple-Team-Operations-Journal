@@ -1,0 +1,73 @@
+# ===========================
+# 1. SYSTEM & IDE JUNK
+# ===========================
+.DS_Store
+Thumbs.db
+.vscode/
+.idea/
+*.swp
+*.swo
+
+# ===========================
+# 2. PYTHON (For CampusConnect/Scripts)
+# ===========================
+__pycache__/
+*.pyc
+*.pyo
+venv/
+env/
+.env
+pip-log.txt
+
+# ===========================
+# 3. LAB INFRASTRUCTURE (CRITICAL)
+# ===========================
+# Never commit VM disks or ISOs
+*.iso
+*.ova
+*.ovf
+*.vmdk
+*.vdi
+*.qcow2
+*.hdd
+*.zip
+*.tar.gz
+*.7z
+
+# ===========================
+# 4. EVIDENCE FILES
+# ===========================
+# PCAPs and Log dumps are too large for free GitHub
+*.pcap
+*.pcapng
+*.cap
+*.evtx
+*.log
+*.csv
+*.json
+# Exception: Keep small JSON/CSV if they are config files,
+# but usually, these are large datasets in your context.
+
+# ===========================
+# 5. BINARIES & MALWARE
+# ===========================
+# Do not commit compiled binaries or malware samples
+*.exe
+*.dll
+*.bin
+*.elf
+*.so
+*.o
+*.out
+target/
+build/
+dist/
+
+# ===========================
+# 6. SENSITIVE DATA
+# ===========================
+credentials.txt
+secrets.txt
+config.ini
+id_rsa
+id_rsa.pub

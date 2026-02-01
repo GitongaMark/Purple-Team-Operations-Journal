@@ -1,0 +1,29 @@
+# 🧠 The Daily "Fingertips" Drill
+
+**"Amateurs practice until they get it right. Professionals practice until they can't get it wrong."**
+
+## 🎯 Purpose
+The goal of this directory is **muscle memory**. In a high-pressure SOC environment or a timed penetration test, you cannot afford to Google "how to grep" or "basic Splunk syntax." These drills ensure the syntax is at my fingertips.
+
+## 📅 The Weekly Routine (30 Mins/Day)
+
+| Day | Focus | Platform / Tool | Folder Link |
+| :--- | :--- | :--- | :--- |
+| **Mon** | 🔍 **Query Logic** | [KC7 Cyber](https://kc7cyber.com/) + [RegexOne](https://regexone.com/) | [`/mon_kql_regex`](./mon_kql_regex) |
+| **Tue** | 🐚 **Win Ops** | [UnderTheWire](https://underthewire.tech/wargames) (PowerShell) | [`/tue_powershell`](./tue_powershell) |
+| **Wed** | 📊 **SIEM** | Local Splunk Instance | [`/wed_splunk_spl`](./wed_splunk_spl) |
+| **Thu** | 📐 **Detection** | [SigmaHQ Rules](https://github.com/SigmaHQ/sigma) | [`/thu_sigma_rules`](./thu_sigma_rules) |
+| **Fri** | 🐧 **Nix Ops** | [OverTheWire (Bandit)](https://overthewire.org/wargames/bandit/) | [`/fri_linux_bash`](./fri_linux_bash) |
+| **Sat** | 🎯 **Detection** | [YARA Rules](https://rangeforce.com/) / YARA | [`/sat_yara_rules`](./sat_yara_rules) |
+
+---
+
+## 📝 How to Log Your Drills
+
+### 1. The Code Snippet Method (Preferred)
+Did you write a cool one-liner? Save it.
+* **File:** `tue_powershell/2026-02-03-process-hunt.ps1`
+* **Content:**
+  ```powershell
+  # Finding processes with high CPU usage
+  Get-Process | Sort-Object CPU -Descending | Select-Object -First 5
