@@ -41,7 +41,7 @@ This repository documents my intensive 5-month "Purple Team" training roadmap. U
 | **Week 05** | AD Enumeration (*Active*) | Domain Trust Mapping |
 | **Week 06** | Kerberoasting | TGS-REQ Analysis |
 | **Week 07** | Lateral Mvt (PsExec) | Persistence Hunting |
-| **Week 08** | **CampusConnect Audit** | **WAF Log Analysis** |
+| **Week 08** | CampusConnect Audit | WAF Log Analysis |
 
 ### 📆 Month 3: The Full Stack (Web/Infra)
 | Mission | Red Action (Attack) | Blue Action (Defense) |
