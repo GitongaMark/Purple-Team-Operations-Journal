@@ -14,7 +14,7 @@ The goal of this directory is **muscle memory**. In a high-pressure SOC environm
 | **Wed** | 📊 **SIEM** | Local Splunk Instance | [`/wed_splunk_spl`](./wed_splunk_spl) |
 | **Thu** | 📐 **Detection** | [SigmaHQ Rules](https://github.com/SigmaHQ/sigma) | [`/thu_sigma_rules`](./thu_sigma_rules) |
 | **Fri** | 🐧 **Nix Ops** | [OverTheWire (Bandit)](https://overthewire.org/wargames/bandit/) | [`/fri_linux_bash`](./fri_linux_bash) |
-| **Sat** | 🎯 **Detection** | [YARA Rules](https://rangeforce.com/) / YARA | [`/sat_yara_rules`](./sat_yara_rules) |
+| **Sat** | 🦠 **Malware Hunting** | YARA (Local) / [YARA-Training](https://github.com/Yara-Rules/rules) | [`/sat_yara_rules`](./sat_yara_rules) |
 
 ---
 
