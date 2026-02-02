@@ -18,7 +18,6 @@ Learned the schema of standard security datasets. These tables map directly to r
 | **SecurityAlerts** | High-level signals from EDR/firewalls. |
 
 ## 2. RegexOne (Tutorials 1-5)
-**Status:** ✅ Completed
 **Concepts Mastered:**
 1.  **Matching Characters:** Exact string matching.
 2.  **Wildcards (`.`):** Matching any single character (e.g., `file..txt`).
