@@ -3,8 +3,8 @@
 ## 1. Red Team Operations
 Executed Nmap scans against Windows 10 Target (`192.168.122.191`).
 * **Command:** `nmap -A -p- 192.168.122.191`
-* **Findings:**
-![Alt Text]![Nmap Scan](red_ops/nmap%20scan.png)
+* **Findings:**![Nmap Scan](red_ops/nmap%20scan.png)
+
 
     * *Port 135 (RPC) - Open :*
     This port is used for Microsoft Remote Procedure Call (RPC) and the Endpoint Mapper. It allows client applications to discover the location of specific services on a network.
