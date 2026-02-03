@@ -3,7 +3,9 @@
 ## 1. Red Team Operations
 Executed Nmap scans against Windows 10 Target (`192.168.122.191`).
 * **Command:** `nmap -A -p- 192.168.122.191`
-* **Findings:**![Nmap Scan](red_ops/nmap%20scan.png)
+* **Findings:**
+
+![Nmap Scan](red_ops/nmap%20scan.png)
 
 
     * *Port 135 (RPC) - Open :*
