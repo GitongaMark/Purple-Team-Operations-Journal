@@ -36,183 +36,192 @@ However, **Sysmon telemetry was completely absent**, despite Sysmon being instal
 
 ```splunk
 index=* source="*Sysmon*"
+```
 
-Result:
-❌ 0 events found
+## Result
+
+❌ **0 events found**
 
 This confirmed that Sysmon logs were not being indexed at all.
 
-🕵️ 2. Root Cause Analysis
-Phase 1: Network & Firewall Validation (Layer 3/4)
+---
 
-Hypothesis: Network or firewall blockage.
+## 🕵️ 2. Root Cause Analysis
 
-Tests Performed:
+### Phase 1: Network & Firewall Validation (Layer 3/4)
 
-Ping Test
+**Hypothesis:** Network or firewall blockage.
 
-Windows → Ubuntu
+#### Tests Performed
 
-✅ Success
+**Ping Test**
+- Windows → Ubuntu  
+- ✅ Success
 
-Port Connectivity Check
-
+**Port Connectivity Check**
+```powershell
 Test-NetConnection -ComputerName 192.168.122.1 -Port 9997
+```
 
+✅ **TcpTestSucceeded : True**
 
-✅ TcpTestSucceeded : True
+### Socket Verification
 
-Socket Verification
-
+```powershell
 netstat -an | findstr 9997
+```
 
+✅ **ESTABLISHED**
 
-✅ ESTABLISHED
+---
 
-Conclusion:
+## Conclusion
+
 Network path is healthy. Issue exists at the application layer.
 
-Phase 2: Forwarder Configuration Audit
+---
 
-Hypothesis: Sysmon logs are not configured for ingestion.
+## Phase 2: Forwarder Configuration Audit
 
-Inspected File:
+### Hypothesis
+Sysmon logs are not configured for ingestion.
 
+### Inspected File
 C:\Program Files\SplunkUniversalForwarder\etc\system\local\inputs.conf
 
+### Finding
+Default Windows Event Log stanzas existed, but **Sysmon was missing**.
 
-Finding:
-Default Windows Event Log stanzas existed, but Sysmon was missing.
+### Fix Attempt
 
-Fix Attempt:
-
+```ini
 [WinEventLog://Microsoft-Windows-Sysmon/Operational]
 disabled = 0
 renderXml = 1
+```
 
-
-Result:
+## Result
 ❌ Still no Sysmon data.
 
-Phase 3: Time Skew Investigation
+---
 
-Hypothesis: Events are indexed with incorrect timestamps.
+## Phase 3: Time Skew Investigation
 
-Findings:
+### Hypothesis
+Events are indexed with incorrect timestamps.
 
-VM Time: 02:22 AM (Pacific Time)
+### Findings
 
-Actual Time: 13:40 PM (UTC+3, Nairobi)
+- **VM Time:** 02:22 AM (Pacific Time)  
+- **Actual Time:** 13:40 PM (UTC+3, Nairobi)
 
-Impact:
-Splunk time-based searches excluded events as historic.
+### Impact
+Splunk time-based searches excluded events as **historic**.
 
-Fix:
+### Fix
 
-Synced VM time to UTC+3
+- Synced VM time to **UTC+3**
+- Searched using **All Time**
 
-Searched using All Time
-
-Result:
+### Result
 ❌ Still no Sysmon events.
 
-Phase 4: Internal Log Forensics (Breakthrough)
+---
 
-Hypothesis: Forwarder is failing silently.
+## Phase 4: Internal Log Forensics (Breakthrough)
 
-Log Analyzed:
+### Hypothesis
+Forwarder is failing silently.
 
+### Log Analyzed
+
+```powershell
 Select-String "Sysmon" "C:\Program Files\SplunkUniversalForwarder\var\log\splunk\splunkd.log"
+```
+## 🔍 Critical Finding
 
-
-Critical Finding:
-
+```text
 ERROR ExecProcessor ... WinEventLogChannel::init: Init failed ... errorCode=5
+```
+## 🔍 Analysis
 
+- **Windows Error Code 5 = Access Denied**
+- The **SplunkForwarder** service account lacked permission to read:
 
-Analysis:
+# Microsoft-Windows-Sysmon/Operational
 
-Windows Error Code 5 = Access Denied
+---
 
-SplunkForwarder service account lacked permission to read:
+## 🛠️ 3. Resolution
 
-Microsoft-Windows-Sysmon/Operational
+### Step 1: Privilege Escalation (Legitimate)
 
-🛠️ 3. Resolution
-Step 1: Privilege Escalation (Legitimate)
+- Opened `services.msc`
+- Located **SplunkForwarder**
+- Changed **Log On As**
+  - ❌ Virtual Account
+  - ✅ Local System Account
 
-Opened services.msc
+---
 
-Located SplunkForwarder
+### Step 2: Restart & Validation
 
-Changed Log On As:
+- Restarted **SplunkForwarder** service
+- Verified `splunkd.log`
+  - ✅ Error Code 5 disappeared
 
-❌ Virtual Account
+- Generated Sysmon activity:
 
-✅ Local System Account
+```bash
+nmap -A 192.168.122.191
+```
+## Step 3: Final Verification
 
-Step 2: Restart & Validation
+### Splunk Search
 
-Restarted SplunkForwarder service
-
-Verified splunkd.log
-
-✅ Error Code 5 disappeared
-
-Generated Sysmon activity:
-
-nmap -A <target>
-
-Step 3: Final Verification
-
-Splunk Search:
-
+```splunk
 index=* source="*Sysmon*" EventCode=3
+```
+# ✅ Result
 
+Sysmon network telemetry successfully ingested.
 
-Result:
-✅ Sysmon network telemetry successfully ingested.
+---
 
-🎯 Key Takeaways
+## 🎯 Key Takeaways
 
-“Connected does not mean working.”
+> “Connected does not mean working.”
 
-A valid TCP connection only proves transport
+- A valid TCP connection only proves transport  
+- Permissions decide ingestion  
+- When data is missing but the network is healthy:
+  - Always check internal application logs  
+  - Especially: `splunkd.log`
 
-Permissions decide ingestion
+---
 
-When data is missing but the network is healthy:
+## 🧩 Skills Demonstrated
 
-Always check internal application logs
+- SIEM troubleshooting  
+- Windows Event Log internals  
+- Splunk Universal Forwarder debugging  
+- Sysmon telemetry validation  
+- Time-skew analysis  
+- Log-based root cause analysis  
 
-Especially: splunkd.log
+---
 
-🧩 Skills Demonstrated
-
-SIEM troubleshooting
-
-Windows Event Log internals
-
-Splunk Universal Forwarder debugging
-
-Sysmon telemetry validation
-
-Time-skew analysis
-
-Log-based root cause analysis
-
-📂 Use Case
+## 📂 Use Case
 
 This case study is relevant for:
 
-SOC Analysts
+- SOC Analysts  
+- Blue Teamers  
+- Purple Teamers  
+- Detection Engineers  
+- DFIR Practitioners  
+- SIEM Engineers  
 
-Blue Teamers
+---
 
-Purple Teamers
-
-Detection Engineers
-
-DFIR Practitioners
-
-SIEM Engineers
+🛡️ *Real incidents build real defenders.*
