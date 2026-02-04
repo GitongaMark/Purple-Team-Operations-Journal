@@ -1,6 +1,8 @@
 # 🧠 Daily Drill: Introduction to Splunk
 **Date:** 2026-02-04
+
 **Source:** education.splunk.com
+
 **Topic:** Core Fundamentals & Visualization
 
 ## 1. Core Concepts
