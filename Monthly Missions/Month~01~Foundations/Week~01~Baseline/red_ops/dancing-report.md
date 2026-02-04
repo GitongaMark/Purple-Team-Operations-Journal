@@ -1,9 +1,17 @@
 # 🚩 HackTheBox Writeup: Dancing
 
 **Date:** February 4, 2026
+
+
 **Target IP:** 10.129.112.84
+
+
 **Difficulty:** Very Easy
+
+
 **OS:** Windows
+
+
 **Vulnerability:** Unsecured SMB Shares (Anonymous Access)
 
 ---
