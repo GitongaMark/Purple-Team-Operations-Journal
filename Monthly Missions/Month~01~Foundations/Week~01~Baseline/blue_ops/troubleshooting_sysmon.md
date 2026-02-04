@@ -87,8 +87,9 @@ Network path is healthy. Issue exists at the application layer.
 Sysmon logs are not configured for ingestion.
 
 ### Inspected File
+```ini
 C:\Program Files\SplunkUniversalForwarder\etc\system\local\inputs.conf
-
+```
 ### Finding
 Default Windows Event Log stanzas existed, but **Sysmon was missing**.
 
