@@ -1,6 +1,8 @@
 # 🦠 Daily Drill: YARA (Malware Pattern Matching)
 **Date:** 2026-02-07
+
 **Topic:** Static Analysis & Signature Creation
+
 **Tools:** YARA, Linux Terminal
 
 ## 1. Concept: What is YARA?
@@ -11,8 +13,9 @@ To simulate a malware detection scenario without handling dangerous code, I used
 
 * **Installation:** `sudo apt install yara`
 * **Malware Artifact:** Created `malware.txt` containing the EICAR string:
+```bash
     > `X5O!P%@AP[4\PZX54(P^)7CC)7}$EICAR-STANDARD-ANTIVIRUS-TEST-FILE!$H+H*`
-
+```
 ## 3. The Detection Rule
 I wrote a YARA rule to scan for the specific ASCII string signature of the EICAR test file.
 
