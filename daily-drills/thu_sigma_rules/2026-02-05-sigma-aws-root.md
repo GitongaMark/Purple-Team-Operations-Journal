@@ -1,6 +1,8 @@
 # 📜 Daily Drill: Sigma Rules (Detection as Code)
 **Date:** 2026-02-05
+
 **Topic:** Sigma Rule Creation & Translation
+
 **Focus:** AWS Cloud Security
 
 ## 1. Concept: What is Sigma?
