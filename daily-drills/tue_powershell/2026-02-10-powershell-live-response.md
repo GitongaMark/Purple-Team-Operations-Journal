@@ -1,6 +1,8 @@
 # 🟦 Daily Drill: PowerShell for Live Response
 **Date:** 2026-02-10
+
 **Topic:** System Enumeration & Forensic Artifacts
+
 **Focus:** "Living off the Land" (Using native tools to find threats)
 
 ## 1. Executive Summary
