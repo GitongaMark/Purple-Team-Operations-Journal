@@ -1,6 +1,8 @@
 # 🧠 Daily Drill: PowerShell Fundamentals (Microsoft Learn)
 **Date:** 2026-02-03
+
 **Source:** Microsoft Learn Module
+
 **Topic:** Core Concepts, Navigation, and Discovery
 
 ## 1. Core Concepts
