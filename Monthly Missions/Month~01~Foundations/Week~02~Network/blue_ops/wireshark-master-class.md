@@ -1,6 +1,8 @@
-# 🦈 Daily Drill: Wireshark Masterclass
-**Date:** 2026-02-11
+# 🦈 Wireshark Refresher Course
+**Date:** 2026-02-10
+
 **Instructor:** Chris Greer
+
 **Topic:** Packet Capture, Network Forensics, and PCAP Analysis
 
 ## 1. Executive Summary
