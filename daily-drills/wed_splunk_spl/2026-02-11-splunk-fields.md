@@ -1,6 +1,8 @@
 # 🟠 Daily Drill: Splunk Fields & Knowledge Objects
 **Date:** 2026-02-12
+
 **Source:** education.splunk.com
+
 **Topic:** Field Extraction, Manipulation, and Optimization
 
 ## 1. The Anatomy of a Field
