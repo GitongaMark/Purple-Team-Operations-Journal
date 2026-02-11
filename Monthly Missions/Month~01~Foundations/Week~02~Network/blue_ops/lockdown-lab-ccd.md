@@ -1,8 +1,10 @@
 # 🛡️ Blue Ops Report: CyberDefenders "Lockdown"
 **Date:** February 2026
-**Analyst:** Mark Gitonga
+
 **Platform:** [CyberDefenders](https://cyberdefenders.org/)
+
 **Category:** Network & Memory Forensics
+
 **Scenario:** A Windows IIS server has been compromised. The goal is to analyze the PCAP and Memory Dump to identify the attacker and their malware.
 
 ---
