@@ -1,8 +1,9 @@
 # 🦈 Forensic Report: "Cold as Ice" (IcedID Infection)
 
 **Date:** February 2026
-**Analyst:** Mark Gitonga
+
 **Source:** [Malware-Traffic-Analysis.net](https://www.malware-traffic-analysis.net/)
+
 **Artifact:** Unit 42 Wireshark Quiz (IcedID -> RedLine Stealer)
 
 ---
