@@ -93,3 +93,5 @@ Adversaries commonly disable Windows Defender immediately after gaining initial 
 - Tampering with the antimalware platform itself
 
 This detection directly supports identifying **post-compromise defense evasion activity**.
+
+---
