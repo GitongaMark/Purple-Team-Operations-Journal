@@ -1,6 +1,6 @@
 # 📜 Daily Drill: Sigma Rules (Defense Evasion)
 
-**Date:** 2026-02-12  
+**Date:** 2026-02-12  yhnnnnnnnnnnnnn
 **Topic:** Sigma Rule Conversion  
 **Focus:** Windows Defender Tampering  
 
