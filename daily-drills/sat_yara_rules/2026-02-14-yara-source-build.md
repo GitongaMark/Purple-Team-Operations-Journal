@@ -1,5 +1,5 @@
 # 🦠 Daily Drill: YARA Source Installation & Rule Fundamentals
-**Date:** 2026-02-  
+**Date:** 2026-02-14  
 **Source:** yara.readthedocs.io  
 **Topic:** Compiling from Source & Static Analysis Syntax  
 
