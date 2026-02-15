@@ -1,7 +1,6 @@
 # 🚩 TryHackMe Writeup: Ice
 
 **Date:** 2026-02-15  
-**Author:** Mark Gitonga  
 **Target:** Windows 7 (DARK-PC)  
 **Vulnerability:** CVE-2004-1561 (Icecast Header Overwrite)  
 **Focus:** Exploit Chain, Privilege Escalation (UAC Bypass), and Post-Exploitation (Kiwi/Mimikatz)
