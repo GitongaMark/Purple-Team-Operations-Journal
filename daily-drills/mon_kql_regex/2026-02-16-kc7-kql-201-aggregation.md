@@ -52,28 +52,28 @@ AuthenticationEvents
 
 ## 4. Advanced Grouping
 
-### `make_set()`
+#### (i)`make_set()`
 
 Instead of counting, this creates a JSON array of all unique values.
 
-**Use Case:**  
+***Use Case:***  
 "Show me a list of all unique recipients for every phishing email subject."
 
 ```kql
 | summarize recipients = make_set(recipient) by subject
 ```
 
-### `top`
+#### (ii)`top`
 
 A shortcut operator.
 
-**Instead of:**
+***Instead of:***
 
 ```kql
 | sort by count_ desc
 | take 10
 ```
-**Use:**
+***Use:***
 
 ```kql
 | top 10 by count_
