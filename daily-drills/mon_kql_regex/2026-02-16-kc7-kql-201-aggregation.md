@@ -62,3 +62,14 @@ Instead of counting, this creates a JSON array of all unique values.
 ```kql
 | summarize recipients = make_set(recipient) by subject
 ```
+
+### 🔟 `top`
+
+A shortcut operator.
+
+Instead of:
+
+```kql
+| sort by count_ desc
+| take 10
+```
