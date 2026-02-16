@@ -1,1 +1,34 @@
-##
+# 🟦 Daily Drill: KQL 201 (Aggregation & Timelines)
+**Date:** 2026-02-16
+**Source:** KC7 Cyber
+**Topic:** KQL Aggregation, Distinct Counts, and Time-Based Functions
+
+## 1. Executive Summary
+Advanced from basic KQL querying to data transformation using the `summarize` operator. This drill focused on aggregating massive datasets to identify patterns, such as counting brute-force login attempts, tracking the spread of malicious links, and establishing the exact timeline of a ransomware encryption event.
+
+## 2. Core Aggregation (The `summarize` Operator)
+The `summarize` operator groups rows based on a specific field and performs calculations on those groups.
+
+| Function | KQL Syntax | DFIR Use Case |
+| :--- | :--- | :--- |
+| **`count()`** | `summarize count() by process_name` | Finds the most frequently executed processes. Good for spotting noisy malware. |
+| **`dcount()`** | `summarize unique_accounts = dcount(username) by src_ip` | **Distinct Count.** Identifies Password Spraying attacks (one IP trying many unique usernames). |
+| **`top`** | `top 10 by execution_count` | Combines `sort by desc` and `take 10` into a single, highly performant command. |
+
+## 3. Timeline Analysis (Establishing the Kill Chain)
+In incident response, knowing *when* something happened is as important as *what* happened. KQL uses mathematical functions on timestamps to build timelines.
+
+* **`min(timestamp)`:** Finds the earliest record (First Seen).
+* **`max(timestamp)`:** Finds the latest record (Last Seen).
+
+**Practical Example: Ransomware Tracking**
+Tracking exactly when files with the `.encrypted` extension were created on `ENRQ-LAPTOP` to determine the speed of the encryption routine:
+```kql
+FileCreationEvents
+| where hostname == "ENRQ-LAPTOP"
+| where filename endswith ".encrypted"
+| summarize 
+    first_seen = min(timestamp),
+    last_seen = max(timestamp)
+    by filename
+| sort by first_seen asc
