@@ -40,3 +40,25 @@ AuthenticationEvents
 | summarize total_fails = count() by src_ip
 | sort by total_fails desc
 ```
+
+**Example: Finding Password Spraying**
+```kql
+AuthenticationEvents
+| where result == "Failed Login"
+| summarize unique_targets = dcount(username) by src_ip
+| where unique_targets > 10
+```
+---
+
+## 4. Advanced Grouping
+
+### 🧩 `make_set()`
+
+Instead of counting, this creates a JSON array of all unique values.
+
+**Use Case:**  
+"Show me a list of all unique recipients for every phishing email subject."
+
+```kql
+| summarize recipients = make_set(recipient) by subject
+```
