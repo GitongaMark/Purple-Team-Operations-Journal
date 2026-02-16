@@ -7,7 +7,7 @@
 Advanced from basic KQL querying to data transformation using the `summarize` operator. This drill focused on aggregating massive datasets to identify patterns, such as counting brute-force login attempts, tracking the spread of malicious links, and establishing the exact timeline of a ransomware encryption event.
 
 ## 2. Core Aggregation (The `summarize` Operator)
-The `summarize` operator groups rows based on a specific field and performs calculations on those groups.
+Unlike `where` (which keeps the table structure), `summarize` **transforms** the table. It collapses thousands of rows into a single summary row based on the groups you define.
 
 | Function | KQL Syntax | DFIR Use Case |
 | :--- | :--- | :--- |
@@ -32,3 +32,11 @@ FileCreationEvents
     last_seen = max(timestamp)
     by filename
 | sort by first_seen asc
+```
+**Example: Detecting Brute Force**
+```kql
+AuthenticationEvents
+| where result == "Failed Login"
+| summarize total_fails = count() by src_ip
+| sort by total_fails desc
+```
