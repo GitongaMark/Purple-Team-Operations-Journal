@@ -1,4 +1,5 @@
 # 🟦 Daily Drill: KQL 201 (Aggregation & Timelines)
+
 **Date:** 2026-02-16
 **Source:** KC7 Cyber
 **Topic:** KQL Aggregation, Distinct Counts, and Time-Based Functions
