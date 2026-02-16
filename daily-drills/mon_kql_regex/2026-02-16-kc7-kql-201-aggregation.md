@@ -52,7 +52,7 @@ AuthenticationEvents
 
 ## 4. Advanced Grouping
 
-### 🧩 `make_set()`
+### `make_set()`
 
 Instead of counting, this creates a JSON array of all unique values.
 
@@ -63,13 +63,26 @@ Instead of counting, this creates a JSON array of all unique values.
 | summarize recipients = make_set(recipient) by subject
 ```
 
-### 🔟 `top`
+### `top`
 
 A shortcut operator.
 
-Instead of:
+**Instead of:**
 
 ```kql
 | sort by count_ desc
 | take 10
 ```
+**Use:**
+
+```kql
+| top 10 by count_
+```
+
+## 🧠 Key Takeaway
+
+The `summarize` operator **changes the shape of your data**.
+
+You lose the individual log details (**raw events**) but gain **high-level insights**.
+
+⚡ **Tip:** Always filter (`where`) **before** you aggregate (`summarize`) to make your queries faster.
