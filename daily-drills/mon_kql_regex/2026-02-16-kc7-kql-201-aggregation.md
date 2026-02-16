@@ -1,8 +1,8 @@
 # 🟦 Daily Drill: KQL 201 (Aggregation & Timelines)
 
-**Date:** 2026-02-16
-**Source:** KC7 Cyber
-**Topic:** KQL Aggregation, Distinct Counts, and Time-Based Functions
+**Date:** 2026-02-16  
+**Source:** KC7 Cyber  
+**Topic:** KQL Aggregation, Distinct Counts, and Time-Based Functions  
 
 ## 1. Executive Summary
 Advanced from basic KQL querying to data transformation using the `summarize` operator. This drill focused on aggregating massive datasets to identify patterns, such as counting brute-force login attempts, tracking the spread of malicious links, and establishing the exact timeline of a ransomware encryption event.
