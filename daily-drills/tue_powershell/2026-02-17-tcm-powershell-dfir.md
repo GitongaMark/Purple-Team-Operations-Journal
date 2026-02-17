@@ -1,7 +1,7 @@
 # 🟦 Daily Drill: PowerShell for DFIR (TCM Academy)
-**Date:** 2026-02-17
-**Topic:** Live Response, System Enumeration & Artifact Collection
-**Focus:** Utilizing native PowerShell cmdlets and WMI/CIM for forensic triage.
+**Date:** 2026-02-17  
+**Topic:** Live Response, System Enumeration & Artifact Collection  
+**Focus:** Utilizing native PowerShell cmdlets and WMI/CIM for forensic triage.  
 
 ## 1. Data Shaping & Output
 Before collecting artifacts, it is critical to know how to format and export the data without losing fidelity.
