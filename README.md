@@ -89,4 +89,4 @@ This repository documents my intensive 5-month "Purple Team" training roadmap. U
 ---
 
 ## ⚠️ Disclaimer
-*All information in this repository is for educational purposes only. Attacks are simulated in a controlled, isolated lab environment or against systems I own/have explicit permission to test (CampusConnect).* & Mathematics** student at **Maseno University**, aspiring to bridge the gap between offensive security (Red Team) and defensive operations (Blue Team).
+*All information in this repository is for educational purposes only. Attacks are simulated in a controlled, isolated lab environment or against systems I own/have explicit permission to test (CampusConnect).
