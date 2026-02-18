@@ -11,8 +11,8 @@ This repository documents my intensive 5-month "Purple Team" training roadmap. U
 
 ---
 
-## 🧠 The Daily "Fingertips" Drill (30 Mins)
-*Consistency beats intensity. I dedicate 30 minutes every single day to muscle memory.*
+## 🧠 The Daily "Fingertips" Drill (1 Hour)
+*Consistency beats intensity. I dedicate `1 hour` every single day to muscle memory.*
 
 | Day | Domain | Activity | Directory Link |
 | :--- | :--- | :--- | :--- |
