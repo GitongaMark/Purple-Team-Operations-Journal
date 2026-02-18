@@ -1,8 +1,8 @@
 # 🟠 Daily Drill: Splunk Visualizations & Transformations
 
-**Date:** 2026-02-18
-**Source:** education.splunk.com
-**Topic:** Data Formatting, Transforming Commands, and Visual Mapping
+**Date:** 2026-02-18  
+**Source:** education.splunk.com  
+**Topic:** Data Formatting, Transforming Commands, and Visual Mapping  
 
 ## 1. Executive Summary
 Completed the Splunk Visualization module, transitioning from raw log filtering to data presentation. The core focus was on transforming commands (`stats`, `chart`, `timechart`) that aggregate data for visual dashboards, as well as the syntax required to format that data cleanly.
