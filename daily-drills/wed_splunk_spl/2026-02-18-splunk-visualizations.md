@@ -30,8 +30,8 @@ Transforming commands are required to build charts and graphs. They convert raw 
 ## 4. Geographic Mapping
 Splunk can automatically map IP addresses to physical locations if piped in the correct order.
 
-1.  **`\| iplocation <ip_field>`**: This command looks up the IP in a built-in database and creates new fields: `City`, `Country`, `lat`, and `lon`.
-2.  **`\| geostats count by <field>`**: This takes the `lat` and `lon` generated above and aggregates the data to be rendered on a map.
+1.  **`| iplocation <ip_field>`**: This command looks up the IP in a built-in database and creates new fields: `City`, `Country`, `lat`, and `lon`.
+2.  **`| geostats count by <field>`**: This takes the `lat` and `lon` generated above and aggregates the data to be rendered on a map.
     * *Map Types:* **Cluster Map** (bubbles of different sizes) and **Choropleth Map** (shading based on metrics).
 
 ## 5. Key Concept: Single Series vs. Multi-Series
