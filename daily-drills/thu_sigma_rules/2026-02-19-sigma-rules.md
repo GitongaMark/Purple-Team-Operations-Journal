@@ -1,7 +1,8 @@
 # 📜 Daily Drill: Sigma Rule Fundamentals
-**Date:** 2026-02-19
-**Source:** sigmahq.io Documentation
-**Topic:** YAML Architecture, Detections, and Metadata
+
+**Date:** 2026-02-19  
+**Source:** sigmahq.io Documentation  
+**Topic:** YAML Architecture, Detections, and Metadata  
 **Author:** Mark Gitonga
 
 ## 1. Executive Summary
