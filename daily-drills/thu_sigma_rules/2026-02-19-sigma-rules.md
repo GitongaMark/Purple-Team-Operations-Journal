@@ -3,7 +3,6 @@
 **Date:** 2026-02-19  
 **Source:** sigmahq.io Documentation  
 **Topic:** YAML Architecture, Detections, and Metadata  
-**Author:** Mark Gitonga
 
 ## 1. Executive Summary
 Today, I decided to step back and learn the foundational basics of Sigma rules directly from the documentation. I realized I wasn't fully grasping the rules I was writing, so I needed to understand the underlying YAML architecture first. I started with the core rule structure today, and next week I will move on to modifiers. I focused on capturing the most practical, everyday information required to detect malicious behavior in a SIEM.
