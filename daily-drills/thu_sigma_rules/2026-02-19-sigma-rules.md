@@ -1,7 +1,7 @@
 # 📜 Daily Drill: Sigma Rule Fundamentals
-**Date:** 2026-02-19
-**Source:** sigmahq.io Documentation
-**Topic:** YAML Architecture, Detections, and Metadata
+**Date:** 2026-02-19  
+**Source:** sigmahq.io Documentation  
+**Topic:** YAML Architecture, Detections, and Metadata  
 
 ## 1. The Core Architecture
 Sigma rules are YAML files containing all the information required to detect odd, bad, or malicious behavior in log files, usually within the context of a SIEM. 
