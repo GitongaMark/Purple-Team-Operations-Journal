@@ -1,4 +1,5 @@
 # 🐧 Daily Drill: Advanced Bash & Text Processing
+
 **Date:** 2026-02-20  
 **Source:** cmdchallenge.com  
 **Topic:** Stream Editing, Algorithms, and Process Substitution  
