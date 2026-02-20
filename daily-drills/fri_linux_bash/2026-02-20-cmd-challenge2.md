@@ -2,7 +2,6 @@
 **Date:** 2026-02-20
 **Source:** cmdchallenge.com
 **Topic:** Stream Editing, Algorithms, and Process Substitution
-**Author:** Mark Gitonga
 
 ## 1. Executive Summary
 Today, I tackled advanced challenges on cmdchallenge.com. The focus shifted from simple navigation to complex text manipulation. I learned how to deduplicate lines while preserving order, perform mathematical calculations (finding primes) using `awk`, and compare datasets using `comm` with process substitution.
