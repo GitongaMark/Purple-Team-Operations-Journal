@@ -49,3 +49,30 @@ function isprime(n) {
 }
 isprime($1) { print $1 }
 ' random-numbers.txt | sort -u | wc -l
+```
+---
+
+# Set Intersection (Common IPs)
+
+I needed to find IP addresses that existed in both `access.log.1` and `access.log.2`.
+
+## Command
+
+```bash
+comm -12 <(awk '{print $1}' access.log.1 | sort) <(awk '{print $1}' access.log.2 | sort)
+```
+
+---
+
+# The Breakthrough
+
+`comm` requires sorted files. Instead of creating temporary files, I used **Process Substitution** `<(...)` to feed the sorted outputs of `awk` directly into `comm`.
+
+- `-1`: Suppress lines unique to file 1.  
+- `-2`: Suppress lines unique to file 2.  
+- `-3`: Suppress lines common to both (left implied, so only common lines remain).
+
+---
+
+🧠 **Key Takeaway**  
+The shell is not just for running tools; it is a programming environment. **Process substitution `<(...)`** is a game-changer—it allows me to compare the outputs of two commands as if they were files, without cluttering the disk with temporary data.
