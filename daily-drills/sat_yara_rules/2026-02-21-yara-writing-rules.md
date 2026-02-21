@@ -3,7 +3,6 @@
 **Date:** 2026-02-21  
 **Source:** yara.readthedocs.io  
 **Topic:** String Modifiers, Iterators, and External Modules  
-**Author:** Mark Gitonga  
 
 ## 1. Executive Summary
 Today, I deepened my understanding of YARA by diving into the official documentation. I moved beyond simple string matching and explored how to handle obfuscated payloads using string modifiers (like XOR and Base64), complex condition logic (like loops and offsets), and external modules (like the PE and Cuckoo modules) to analyze file structures and sandbox behavior.
