@@ -1,4 +1,4 @@
-# 🔎 Week 3 Report: Forensic Acquisition & Deleted File 
+# 🔎 Forensic Acquisition & Deleted File 
 
 **Date:** 2026-02-22  
 **Category:** Host Forensics (Disk & Memory)
@@ -35,4 +35,4 @@ Operating as the forensic investigator, I ignored the live operating system and 
 To understand *why* these forensic artifacts exist, I spent time reading through the **Windows Internals (Sysinternals)** documentation. Understanding how the NT kernel manages memory, threads, and the NTFS file system is critical for knowing where malware hides and how data persists after deletion.
 
 ## 🧠 Key Takeaway
-"Deleting" a file doesn't actually delete the data; it just tells the OS that the space is available to be overwritten. Timestomping can fool a basic file explorer, but conducting Hex-level analysis and data carving on a raw E01 image reveals the absolute truth of what happened on the disk.
+`Deleting` a file doesn't actually delete the data; it just tells the OS that the space is available to be overwritten. Timestomping can fool a basic file explorer, but conducting Hex-level analysis and data carving on a raw E01 image reveals the absolute truth of what happened on the disk.
