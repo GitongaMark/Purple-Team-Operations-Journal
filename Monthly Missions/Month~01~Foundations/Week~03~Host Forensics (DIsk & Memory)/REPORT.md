@@ -1,5 +1,6 @@
-# 🔎 Week 3 Report: Forensic Acquisition & Deleted File Recovery
-**Date:** 2026-02-22
+# 🔎 Week 3 Report: Forensic Acquisition & Deleted File 
+
+**Date:** 2026-02-22  
 **Category:** Host Forensics (Disk & Memory)
 
 ## 1. Executive Summary
