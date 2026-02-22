@@ -1,7 +1,6 @@
 # 🔎 Week 3 Report: Forensic Acquisition & Deleted File Recovery
 **Date:** 2026-02-22
 **Category:** Host Forensics (Disk & Memory)
-**Author:** Mark Gitonga
 
 ## 1. Executive Summary
 This week, I conducted a full-cycle "Purple Team" exercise focused on Host Forensics. I started by compromising a machine (HTB: Devel) and applying anti-forensics techniques like file deletion and timestomping. I then pivoted to the Blue Team side to perform a cryptographically sound disk acquisition, analyze the raw Hex, and successfully carve the deleted data directly from the disk image.
