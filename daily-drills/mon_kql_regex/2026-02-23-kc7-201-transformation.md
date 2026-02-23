@@ -3,7 +3,6 @@
 **Date:** 2026-02-23  
 **Source:** KC7 Cyber  
 **Topic:** KQL Data Transformation and Advanced Filtering  
-**Author:** Mark Gitonga  
 
 ---
 
