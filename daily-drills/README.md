@@ -13,7 +13,7 @@ The goal of this directory is **muscle memory**. In a high-pressure SOC environm
 | **Tue** | 🐚 **Win Ops** | [UnderTheWire](https://underthewire.tech/wargames) (PowerShell) | [`/tue_powershell`](./tue_powershell) |
 | **Wed** | 📊 **SIEM** | Local Splunk Instance | [`/wed_splunk_spl`](./wed_splunk_spl) |
 | **Thu** | 📐 **Detection** | [SigmaHQ Rules](https://github.com/SigmaHQ/sigma) | [`/thu_sigma_rules`](./thu_sigma_rules) |
-| **Fri** | 🐧 **Nix Ops** | [OverTheWire (Bandit)](https://overthewire.org/wargames/bandit/) | [`/fri_linux_bash`](./fri_linux_bash) |
+| **Fri** | 🐧 **Linux Ops** | [OverTheWire (Bandit)](https://overthewire.org/wargames/bandit/) | [`/fri_linux_bash`](./fri_linux_bash) |
 | **Sat** | 🦠 **Malware Hunting** | YARA (Local) / [YARA-Training](https://github.com/Yara-Rules/rules) | [`/sat_yara_rules`](./sat_yara_rules) |
 
 ---
