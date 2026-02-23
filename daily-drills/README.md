@@ -9,7 +9,7 @@ The goal of this directory is **muscle memory**. In a high-pressure SOC environm
 
 | Day | Focus | Platform / Tool | Folder Link |
 | :--- | :--- | :--- | :--- |
-| **Mon** | 🔍 **Query Logic** | [KC7 Cyber](https://kc7cyber.com/) + [RegexOne](https://regexone.com/) | [`/mon_kql_regex`](./mon_kql_regex) |
+| **Mon** | 🔍 **Query Logic** | [KC7 Cyber](https://kc7cyber.com/) | [`/mon_kql`](./mon_kql) |
 | **Tue** | 🐚 **Win Ops** | [UnderTheWire](https://underthewire.tech/wargames) (PowerShell) | [`/tue_powershell`](./tue_powershell) |
 | **Wed** | 📊 **SIEM** | Local Splunk Instance | [`/wed_splunk_spl`](./wed_splunk_spl) |
 | **Thu** | 📐 **Detection** | [SigmaHQ Rules](https://github.com/SigmaHQ/sigma) | [`/thu_sigma_rules`](./thu_sigma_rules) |
