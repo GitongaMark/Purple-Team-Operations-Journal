@@ -16,7 +16,7 @@ This repository documents my intensive 5-month "Purple Team" training roadmap. U
 
 | Day | Domain | Activity | Directory Link |
 | :--- | :--- | :--- | :--- |
-| **Mon** | 🔍 Log Analysis | KQL Speed Games | [`/daily-drills/mon_kql](./daily-drills/mon_kql) |
+| **Mon** | 🔍 Log Analysis | KQL Speed Games | [`/daily-drills/mon_kql`](./daily-drills/mon_kql) |
 | **Tue** | 🐚 Scripting | PowerShell/Bash Piping & Grepping | [`/daily-drills/tue_powershell`](./daily-drills/tue_powershell) |
 | **Wed** | 📊 SPL | Splunk Search Processing Language | [`/daily-drills/wed_splunk_spl`](./daily-drills/wed_splunk_spl) |
 | **Thu** | 📐 Detection | Sigma Rules & MITRE Mapping | [`/daily-drills/thu_sigma_rules`](./daily-drills/thu_sigma_rules) |
