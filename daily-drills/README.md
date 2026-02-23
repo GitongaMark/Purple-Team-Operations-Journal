@@ -17,13 +17,3 @@ The goal of this directory is **muscle memory**. In a high-pressure SOC environm
 | **Sat** | 🦠 **Malware Hunting** | YARA (Local) / [YARA-Training](https://github.com/Yara-Rules/rules) | [`/sat_yara_rules`](./sat_yara_rules) |
 
 ---
-
-## 📝 How to Log Your Drills
-
-### 1. The Code Snippet Method (Preferred)
-Did you write a cool one-liner? Save it.
-* **File:** `tue_powershell/2026-02-03-process-hunt.ps1`
-* **Content:**
-  ```powershell
-  # Finding processes with high CPU usage
-  Get-Process | Sort-Object CPU -Descending | Select-Object -First 5
