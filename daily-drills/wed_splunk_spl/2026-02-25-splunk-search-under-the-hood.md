@@ -1,8 +1,8 @@
 # 🟠 Daily Drill: Splunk Search Under the Hood
 
-**Date:** 2026-02-25
-**Source:** education.splunk.com
-**Topic:** Search Job Inspector, Pipeline Architecture, and Optimization
+**Date:** 2026-02-25  
+**Source:** education.splunk.com  
+**Topic:** Search Job Inspector, Pipeline Architecture, and Optimization  
 
 ## 1. Executive Summary
 Today, I looked behind the curtain of the Splunk search engine. Instead of just writing SPL, I learned how Splunk tokenizes data, processes commands across its architecture, and how to measure the exact performance of my queries using the Search Job Inspector.
