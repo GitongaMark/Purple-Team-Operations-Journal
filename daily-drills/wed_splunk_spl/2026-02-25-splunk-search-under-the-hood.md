@@ -1,4 +1,5 @@
 # 🟠 Daily Drill: Splunk Search Under the Hood
+
 **Date:** 2026-02-25
 **Source:** education.splunk.com
 **Topic:** Search Job Inspector, Pipeline Architecture, and Optimization
