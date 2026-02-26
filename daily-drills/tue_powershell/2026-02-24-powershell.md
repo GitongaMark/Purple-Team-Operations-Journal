@@ -1,0 +1,1 @@
+# Read powershell cheat sheet from tcm academy
