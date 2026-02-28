@@ -1,8 +1,8 @@
 # 🟠 Daily Drill: Splunk Search Under the Hood
 
-**Date:** 2026-02-25
-**Source:** education.splunk.com
-**Topic:** Search Architecture, Job Inspector, and Optimization
+**Date:** 2026-02-25   
+**Source:** education.splunk.com   
+**Topic:** Search Architecture, Job Inspector, and Optimization   
 **Author:** Mark Gitonga
 
 ## 1. Executive Summary
