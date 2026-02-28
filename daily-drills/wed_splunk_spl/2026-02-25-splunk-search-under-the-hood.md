@@ -1,45 +1,83 @@
 # 🟠 Daily Drill: Splunk Search Under the Hood
 
-**Date:** 2026-02-25  
-**Source:** education.splunk.com  
-**Topic:** Search Job Inspector, Pipeline Architecture, and Optimization  
+**Date:** 2026-02-25
+**Source:** education.splunk.com
+**Topic:** Search Architecture, Job Inspector, and Optimization
+**Author:** Mark Gitonga
 
 ## 1. Executive Summary
-Today, I looked behind the curtain of the Splunk search engine. Instead of just writing SPL, I learned how Splunk tokenizes data, processes commands across its architecture, and how to measure the exact performance of my queries using the Search Job Inspector.
+Today, I looked under the hood of the Splunk search pipeline. I moved beyond writing SPL and learned *how* the engine processes my commands. I explored the Search Job Inspector to troubleshoot performance, mapped the execution path of streaming vs. non-streaming commands, and dug into the architectural components like Bloom filters, `.tsidx` files, and LISPY expressions that make Splunk incredibly fast.
 
 ## 2. The Search Job Inspector
-I learned how to dissect a search's execution time to find performance bottlenecks. By opening the Job Inspector, I can see exactly where the CPU spent its time:
+This is the ultimate troubleshooting tool. It breaks down exactly where a search spent its time and how the engine parsed the logic.
+* **Header:** Shows the overall execution time and total events scanned.
+* **Execution Costs:** Details the time spent on specific components (e.g., `command.search.index`, `command.search.lookups`, `search.kv`).
 
-| Component | What it measures (My Notes) |
-| :--- | :--- |
-| `command.search.index` | Time spent scanning the actual index files on disk (the fastest part if filtered right). |
-| `command.search.filter` | Time spent filtering the results based on my SPL logic. |
-| `search.rawdata` | Time spent pulling the raw text of the events from the disk. |
-| `search.kv` | Time spent extracting Key-Value pairs (Search-time field extraction). *High times here mean I should optimize my regex or use `fields` earlier.* |
-| `search.lookups` | Time spent executing CSV or KV Store lookups. |
+## 3. Splunk Architecture (How Data is Stored)
+When data is ingested, Splunk creates a bucket containing two primary components:
+1.  **Journal (`.gz`):** The compressed raw event data.
+2.  **Time-Series Index (`.tsidx`):** Contains the **lexicon** (a list of all unique tokens/words) and a **posting list** (pointers back to the exact location of those tokens in the journal).
 
-## 3. Splunk Architecture: Command Types
-This was the most critical concept for query optimization. Splunk executes commands differently depending on their type.
 
-* **Streaming Commands:** These operate on each event as it arrives. They execute in parallel across the **Indexers**. (e.g., `search`, `eval`, `rex`, `fields`). *Goal: Push these as early in the query as possible.*
-* **Non-Streaming Commands:** These require the entire dataset to be gathered before they can execute. They force the data to be sent to the **Search Head** for processing. (e.g., `stats`, `sort`, `dedup`). Once a non-streaming command is used, all subsequent commands happen on the Search Head.
 
-## 4. Data Parsing (Breakers & Segmentation)
-I explored how Splunk breaks raw log lines into searchable "tokens."
-* Splunk uses **Major Breakers** (spaces, tabs, newlines) and **Minor Breakers** (commas, equals signs, colons) to segment data.
-* Understanding this helps me realize why searching for an exact string or an IP address is faster than using leading wildcards (`*text`), which forces Splunk to scan inside the tokens.
+* **Bloom Filters:** A probabilistic data structure created when a bucket rolls from *hot* to *warm*. It allows Splunk to instantly know if a bucket does *not* contain a specific term, preventing unnecessary disk reads.
+* **LISPY:** When I run a search, Splunk generates a "LISPY expression" behind the scenes to check against the Bloom filters and quickly narrow down which buckets contain my search terms.
 
-## 5. SPL Commenting & Troubleshooting
-I documented the native tools used for keeping complex SPL readable and debugging data.
+## 4. Streaming vs. Non-Streaming Commands
+Where a command executes dramatically impacts performance.
 
-* **SPL Comments:** I can use three backticks ` ``` ` to comment out blocks of code or add notes directly in the search bar. Example:
-    ```splunk
-    index=security 
-    ``` Filter out the noisy scanner IP ```
-    | search NOT src_ip="10.0.0.5"
-    ```
-* **`| fieldsummary`**: A powerful command for troubleshooting. It generates a statistical profile of all fields in my search results (showing max, min, mean, and distinct count).
-* **Informational Functions:** Used inside `eval` statements to check the data type of a field before manipulating it (e.g., `isnum()`, `isstr()`, `isnull()`).
+| Command Type | Execution Location | Examples | My Notes |
+| :--- | :--- | :--- | :--- |
+| **Distributable Streaming** | Indexers | `eval`, `fields`, `rename`, `regex` | Extremely fast. The work is pushed down to the indexers before sending data over the network. |
+| **Centralized Streaming** | Search Head | `streamstats`, `transaction` | Applies to data on the search head, but still processes events one by one. |
+| **Transforming** | Search Head | `stats`, `chart`, `timechart`, `top` | Aggregates the entire dataset. Must run on the Search Head after all data is collected from indexers. |
+
+## 5. Breakers, Tokens, and Optimization
+* Splunk uses **Major Breakers** (spaces, commas, colons, newlines) to segment raw logs into tokens first. 
+* Leading wildcards (e.g., `*error`) break the LISPY expression, rendering the Bloom filter useless and forcing a full scan of the raw data. 
+* **The `TERM()` Directive:** If an IP address like `10.0.0.1` is being broken up by minor breakers (periods), I can use `TERM(10.0.0.1)` to force Splunk to look for the exact string, massively speeding up the search.
+
+## 6. Troubleshooting & Informational Commands
+* **SPL Comments:** I can document complex logic directly in the pipeline using ``` ` ``` before and after my comment (e.g., ``` `This filters out local admin` ```).
+* **`makeresults`:** A generating command that creates temporary, blank search results to test `eval` logic without querying actual data.
+* **`fieldsummary`:** Returns statistics about fields (max, mean, min, distinct count) to help me understand the shape of unfamiliar data.
+
+---
+
+## 🧠 Knowledge Check Answers
+
+1. **If a search begins with a distributable streaming command, where is it first executed?**
+   * On the indexer
+2. **After Splunk tokenizes terms at index time, where are the tokens stored?**
+   * In the lexicon
+3. **Where can comments be placed in a search?**
+   * Comments can be placed anywhere inside a search.
+4. **Which of the following breakers would be used first in segmentation?**
+   * Commas *(Note: Commas are major breakers, while periods and hyphens are minor breakers).*
+5. **Which component of the Search Job Inspector shows how long a search took to execute?**
+   * Header
+6. **Which of the following commands generates temporary search results?**
+   * `makeresults`
+7. **Where in the search pipeline are transforming commands executed?**
+   * On the search head
+8. **Which of the following conditions could cause a lispy expression to not create tokens?**
+   * A wildcard at the beginning of a search
+9. **Which architectural component of a Splunk deployment initiates a search?**
+   * Search Head
+10. **When is a bucket's bloom filter created?**
+    * When a bucket rolls from hot to warm.
+11. **Which of the following expressions builds a search-time bloom filter?**
+    * A lispy expression
+12. **Which component of a bucket stores raw event data?**
+    * Journal
+13. **Which directive can be used in a search to bypass minor breakers inside the supplied argument?**
+    * `TERM`
+14. **Which of the following syntaxes signify a comment in SPL?**
+    * ` ```comment``` `
+15. **Where should the makeresults command be placed within a search?**
+    * The makeresults command must be the first command in a search *(Generating commands initiate the stream).*
+
+---
 
 ## 🧠 Key Takeaway
 The order of commands in Splunk matters immensely. To optimize performance, I must filter early (`search`), keep only what I need (`fields`), and delay non-streaming commands (`stats`, `sort`) until the very end of the pipeline to avoid choking the Search Head.
