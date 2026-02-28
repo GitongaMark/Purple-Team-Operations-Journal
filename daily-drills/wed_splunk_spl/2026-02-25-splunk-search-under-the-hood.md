@@ -3,7 +3,6 @@
 **Date:** 2026-02-25   
 **Source:** education.splunk.com   
 **Topic:** Search Architecture, Job Inspector, and Optimization   
-**Author:** Mark Gitonga
 
 ## 1. Executive Summary
 Today, I looked under the hood of the Splunk search pipeline. I moved beyond writing SPL and learned *how* the engine processes my commands. I explored the Search Job Inspector to troubleshoot performance, mapped the execution path of streaming vs. non-streaming commands, and dug into the architectural components like Bloom filters, `.tsidx` files, and LISPY expressions that make Splunk incredibly fast.
